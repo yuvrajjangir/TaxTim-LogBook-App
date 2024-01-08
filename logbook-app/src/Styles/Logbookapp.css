@@ -1,0 +1,334 @@
+
+
+.top-nav1 {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    background-color: #007499;
+    color: rgb(0, 0, 0);
+    height: 70px;
+    font-size: 0.85em;
+    align-items: center;
+    position: sticky;
+    top:0;
+    z-index: 1;
+  }
+  
+  
+  .reg-nav1 {
+    color: white;
+    font-weight: 700;
+    width: 50%;
+    justify-content: space-around;
+    margin-right: 250px;
+  }
+  
+  #navbar-link {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1px;
+    color: rgb(0, 0, 0);
+    align-items: center;
+    width: 40%;
+    font-weight: 600;
+  }
+  .login-btn{
+    text-decoration: none;
+    color: white;
+    margin-right: -5rem;
+  }
+  
+  .link1 {
+    color: white;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 1.3rem;
+    margin-left: 1rem;
+    /* padding-right: 50px; */
+    /* margin-right: 10px; */
+    text-decoration: none;
+    font-size: 1em;
+  }
+  .dropdown{
+    margin-left: -40px;
+  }
+  .dropbtn{
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    color: white;
+    font-weight: 700;
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 3.5rem;
+    margin-right: -3rem;
+    cursor: pointer;
+  }
+  .loginname1{
+    
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+ 
+  
+  .logbook-image img{
+    width: 120px;
+    /* height: 20%; */
+    vertical-align: center;
+    margin-top: 40px;
+    margin-bottom: 25px;
+    align-items: center;
+    /* margin-right: 200px; */
+    margin-left: 0rem;
+    color: white;
+    /* filter: invert(100%); */
+  }
+  .trips-line{
+    width: 70%;
+    margin-top: -1.5rem;
+    /* font-weight: 100; */
+    border: none;
+    border-top: 0.1cqb solid rgb(220, 218, 218);
+    /* height: 1px; */
+    /* border: none; Removes default border */
+    /* height: 5px; */
+  }
+  .trip-btn-1{
+    width: 70%;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background-color: #f19d3a;
+    font-size: 17px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    margin-top: 1rem;
+    color: white;
+    cursor: pointer;
+  }
+  .trip-btn-1:hover{
+    background-color: #f58a0f;
+  }
+  .trip-version{
+    font-size: 17px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 100;
+    margin-top: 20rem;
+
+  }
+  .alert-box {
+    color: #615150;
+    width: 70%;
+    margin-top: 2rem;
+    margin-left: 13.5rem;
+    border-radius: 10px;
+    background-color: #fcebd8; /* Background color for the alert box */
+    padding: 13px; /* Padding around the alert box */
+    border-radius: 5px; /* Border radius to round the corners */
+    margin-bottom: 20px; /* Margin to create space between alert and content */
+  }
+  .saved{
+    font-size: 40px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-top: 2.5rem;
+
+  }
+  
+  .line {
+    border-left: 1px solid white;
+    margin-right: -2.2rem;
+    margin-left: 1rem;
+    padding: 2px; /* Change color as needed */
+    /* margin: -2rem 20px; Adjust spacing as needed */
+    height: 40px; /* Adjust height as needed */
+  }
+  
+  #mobile {
+    display: none;
+    margin-right: 20px;
+  }
+ #mobile i{
+   color: white;
+ }
+
+  
+
+
+
+  
+  /* Media query for medium-sized screens */
+  @media (max-width: 820px) {
+    .top-nav1 {
+      justify-content: space-between; /* Adjust the spacing of elements */
+    }
+    
+    .reg-nav1 {
+      width: 40%; /* Reduce the width */
+      margin-right: 0; /* Remove the right margin */
+    }
+    
+    #link-div1 {
+      width: 60%; /* Increase the width */
+    }
+    
+    
+    .logbook-image{
+      margin-right: 0; /* Remove the right margin */
+      width:180px
+    }
+    
+    .top-nav-4 {
+      margin-left: 0; /* Remove the left margin */
+    }
+  }
+  
+  /* Media query for small screens */
+  @media (max-width: 375px) {
+    .reg-nav1 {
+      display: none; /* Hide the registration section on small screens */
+    }
+    
+    #link-div1 {
+      justify-content: space-evenly; /* Center align the links */
+      width: 100%; /* Occupy full width */
+      margin-top: 15px; /* Add some margin at the top */
+    }
+    
+    .link {
+      font-size: 0.9em; 
+    }
+    
+    .top-nav-2 {
+      flex-direction: column; /* Stack the elements vertically */
+      padding: 10px; /* Adjust the padding */
+    }
+    
+    .top-nav-4 {
+      gap: 10px; /* Reduce the gap between elements */
+      margin-left: 0; /* Remove the left margin */
+    }
+    
+    .anch1 {
+      font-size: 16px; /* Reduce the font size */
+      padding: 3px; /* Adjust the padding */
+    }
+    
+    .logo-img {
+      margin-bottom: 10px; /* Reduce the margin at the bottom */
+      width:100px
+    }
+
+    .logbook-image{
+      margin-bottom: 10px; /* Reduce the margin at the bottom */
+      width:100px
+    }
+    
+    .getstart1 {
+      display: none; /* Hide the "GET STARTED" button on small screens */
+    }
+  }
+
+  @media screen and (max-width:769px){
+    .reg-nav1 {
+        width: 80%;
+        font-size: 13px;
+        font-weight: 500; /* Reduce the width */
+        margin-left: 3px; /* Remove the right margin */
+      }
+     
+      .logbook-image img{
+        width: 100px;
+        /* height: 40px; */
+        margin-top: 0rem;
+        margin-bottom: -1.3rem;
+        margin-left: -15px;
+      }
+    
+     
+
+    #navbar-link{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        margin-right: -2rem;
+        top: 60px;
+        right: -300px;
+        width: 280px;
+        height: 50vh;
+        background: #007499;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+        padding: 20px 0px  50rem 15px;
+        transition: 0.3s ease-in-out;
+        /* margin-top: 20px; */
+      }
+      .link1 {
+        color: white;
+        font-weight: 100;
+        margin-top: -20px;
+        text-decoration: none;
+        /* justify-content: space-evenly; */
+        padding-right: -20px;
+        font-size: 1em;
+        margin-top: 0rem;
+        margin-left: -0.5rem;
+        padding-right: 50px;
+      }
+      #navbar-link.active{ 
+        right: 0px;
+
+      }
+      .dropdown{
+        margin-left: -40px;
+      }
+      .dropbtn{
+        border: none;
+        box-shadow: none;
+        background-color: transparent;
+        color: white;
+        font-weight: 700;
+        font-size: 15px;
+        font-family: 'Times New Roman', Times, serif;
+        margin-left: 0rem;
+        margin-right: 0.3rem;
+        margin-top: -2rem;
+        cursor: pointer;
+      }
+      .line {
+        padding: 0.4px;
+        width: 100%;
+        height: 0.0px;
+        background-color: white; /* Change color as needed */
+        margin: 5px 0px; 
+        margin-left: -12px;
+      }
+
+      .loginname1{
+        font-size: 8px;
+        margin-right: -4rem;
+      }
+      #mobile {
+        display: block;
+      }
+      #mobile i {
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+      }
+      .login-btn{
+        text-decoration: none;
+        color: white;
+      }
+      .alert-box {
+        color: #615150;
+        width: 70%;
+        margin-top: 2rem;
+        margin-left: 6.5rem;
+        border-radius: 10px;
+        background-color: #fcebd8; /* Background color for the alert box */
+        padding: 13px; /* Padding around the alert box */
+        border-radius: 5px; /* Border radius to round the corners */
+        margin-bottom: 20px; /* Margin to create space between alert and content */
+      }
+  }

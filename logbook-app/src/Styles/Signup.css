@@ -1,0 +1,65 @@
+.signup-title{
+    font-size: 35px;
+    font-weight: 500;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+}
+.signup-label{
+    text-align: left;
+    margin-left: 14.2rem;
+    margin-top: 1rem;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.signup-input input{
+    width: 70%;
+    height: 24px;
+    background-color: whitesmoke;
+    border: none;
+    margin-left: 2px;
+    padding: 8px;
+    border: 1px solid #ccc; /* Default border color */
+    border-radius: 10px;
+    outline: none;
+}
+
+.signup-input input::placeholder {
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    color: rgb(159, 159, 159);/* Change this value to increase or decrease the placeholder text size */
+  }
+  
+  input[type="text"]:focus {
+    border-color: rgb(93, 206, 241); /* Change border color to blue when focused */
+  }
+  .signup-button{
+    width: 70%;
+    height: 42px;
+    border: none;
+    border-radius: 4px;
+    background-color: #54d387;
+    font-size: 17px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    color: white;
+    margin-top: 1rem;
+    cursor: pointer;
+    /* margin-left: ; */
+  }
+  .signup-button:hover{
+    background-color: #26cf6a;
+  }
+  .login-register{
+    text-decoration: none !important;
+    font-size: 16px;
+    font-weight: 200;
+    margin-left: 4px;
+    /* margin-top: 4px; */
+    color: #3bcdea;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  }
+  .signup-version{
+    font-size: 17px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 100;
+    margin-top: 4rem;
+  }
