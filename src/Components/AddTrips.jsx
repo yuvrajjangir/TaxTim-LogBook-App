@@ -95,6 +95,7 @@ export const AddTrips = () => {
       setGoingTo(''); 
       fetchSavedTrips();
       setSavedTrips([...savedTrips, newTrip]);
+      alert('Trip added successfully')
     } catch (error) {
       console.error('Error saving trip:', error);
     }
@@ -119,7 +120,7 @@ export const AddTrips = () => {
     try {
       await axios.delete(`https://zany-red-cockatoo.cyclic.app/trips/${id}`);
       fetchSavedTrips();
-      setAlertMessage('Trip deleted successfully');
+      alert('Trip deleted successfully')
       setShowAlert(true);
     } catch (error) {
       if (error.response && error.response.status === 404) {
@@ -194,7 +195,8 @@ export const AddTrips = () => {
         setIsEditing(false);
         setLeavingFrom(''); // Clear Leaving from field
         setGoingTo(''); 
-        setSavedTrips(updatedTrips); // Reset editing trip ID after update
+        setSavedTrips(updatedTrips);
+        alert('Trip updated successfully') // Reset editing trip ID after update
       } else {
         console.error('No trip selected for editing');
       }
@@ -204,72 +206,6 @@ export const AddTrips = () => {
     }
   };
   
-  
- 
-
-  const validateFields = () => {
-    return departureOdometer.trim() !== '' &&
-      arrivalOdometer.trim() !== '' &&
-      selectedDateTime.trim() !== '';
-  };
-
-  // const handleSaveTrip = () => {
-
-  //   if (!validateFields()) {
-  //     alert('Please fill all the required fields');
-  //     return;
-  //   }
-
-  //   const distance = calculateDistance();
-  //   const selectedDate = new Date(selectedDateTime || getCurrentDateTime());
-  //   const formattedDate = new Intl.DateTimeFormat('en-US', {
-  //     year: 'numeric',
-  //     month: 'short',
-  //     day: 'numeric',
-  //     hour: 'numeric',
-  //     minute: 'numeric',
-  //     hour12: true,
-  //   }).format(selectedDate);
-  
-  //   const tripData = {
-  //     distance: distance + ' km',
-  //     time: formattedDate,
-  //     car: 'Default Car',
-  //     reason: selectedReason || 'Site visit' // Replace with your reason input value
-  //   };
-
-  //   setSavedTrips([...savedTrips, tripData]);
-
-  //   setDepartureOdometer('');
-  //   setArrivalOdometer('');
-  //   setIsPrivate(false);
-  //   setIsBusiness(false);
-  //   setSelectedDateTime('');
-  //   setSelectedReason('');
-  // };
-  
-
-  const deleteTrip = (index) => {
-    const updatedTrips = [...savedTrips];
-    updatedTrips.splice(index, 1);
-    setSavedTrips(updatedTrips);
-  };
-
-  
-  const handleCheckChange = () => {
-    setIsChecked(!isChecked);
-  };
-
-  // const getCurrentDateTime = () => {
-  //   const now = new Date();
-  //   const year = now.getFullYear();
-  //   const month = (now.getMonth() + 1).toString().padStart(2, '0');
-  //   const day = now.getDate().toString().padStart(2, '0');
-  //   const hours = now.getHours().toString().padStart(2, '0');
-  //   const minutes = now.getMinutes().toString().padStart(2, '0');
-
-  //   return `${year}-${month}-${day}T${hours}:${minutes}`;
-  // };
   const reasonOptions = ['Site visit', 'Client meeting', 'Delivery', 'Team Meetings'];
   const handlelocation =() => {
     navigate("/location")
@@ -305,11 +241,11 @@ export const AddTrips = () => {
                 Setup locations
             </button>
         </div>
-        {showAlert && (
+        {/* {showAlert && (
         <div className='alert-message'>
           <p>{alertMessage}</p>
         </div>
-      )}
+      )} */}
         <div className='trip-inputs'>
             <div className='label'>
                 <label>Leaving from
@@ -338,19 +274,19 @@ export const AddTrips = () => {
     ))}
   </select>
 </div>
-            <div className='label'>
+            <div className='odometer-label'>
                 <label>Odometer on departure
                 </label>
             </div>
-            <div className='input'>
+            <div className='odometer-input'>
             <input placeholder='Km.' type="number" value={departureOdometer}
             onChange={(e) => setDepartureOdometer(e.target.value)} disabled={locations.length === 0}/>
             </div>
-            <div className='label'>
+            <div className='odometer-label'>
                 <label>Odometer on arrival
                 </label>
             </div>
-            <div className='input'>
+            <div className='odometer-input'>
             <input style={{marginBottom:"10px"}} placeholder='Km.' type="number" value={arrivalOdometer}
             onChange={(e) => setArrivalOdometer(e.target.value)} disabled={locations.length === 0}/>
             </div>
@@ -383,11 +319,11 @@ export const AddTrips = () => {
         </select>
             </div>
         </div>
-        <div className='label'>
+        <div className='time-label'>
                 <label>Time
                 </label>
             </div>
-            <div className='input'>
+            <div className='time-input'>
             <input type="datetime-local" id="datetimeInput" name="datetimeInput" value={selectedDateTime}
           onChange={(e) => setSelectedDateTime(e.target.value)} disabled={locations.length === 0}/>
             </div>
@@ -412,6 +348,7 @@ export const AddTrips = () => {
           </div>
         ))}
       </div>
+      <h3 className="trip-version">Latest Version 1.6.3</h3>
     </div>
   )
 }

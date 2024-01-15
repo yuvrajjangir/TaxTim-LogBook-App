@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react'
 import "../Styles/Login.css" 
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
+import { useAuth } from '../Context/AuthContext';
 export const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate('');
+    const { login } = useAuth();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [showDropdown, setShowDropdown] = useState(false);
 
@@ -21,52 +23,24 @@ export const Login = () => {
         const data = {
           email: email,
           password: password
+          
         };
-      
+        
         try {
-          const api = await axios.post('https://zany-red-cockatoo.cyclic.app/login', data);
-          console.log(api.data);
-      
-          if (api.data.token) {
-            setError(''); // Clear any previous errors
-            localStorage.setItem('token', api.data.token);
-            setIsLoggedIn(true);
-            alert("Login successful");
-            navigate('/addtrip');
-          } else {
-            setError('Login failed. Please check your credentials.');
-          }
-        } catch (error) {
-          console.log("Login error:", error);
-          if (error.response) {
-            if (error.response.status === 401) {
-              setError('Wrong email or password. Please try again.'); // Handle 401 status (Unauthorized) - Wrong credentials
-            } else if (error.response.status === 404) {
-              setError('User not found.'); // Handle 404 status - User not found
-            } else if (error.response.status === 500) {
-              setError('Server error. Please try again later.'); // Handle 500 status - Server error
-            } else {
-              setError('An error occurred during login.'); // Handle other response errors
-            }
-          } else {
-            setError('An error occurred during login.'); // Handle other types of errors
-          }
-        }
-      };
-      
-      
-      
-      
-    useEffect(() => {
-        // Check if the user is logged in (example: checking localStorage for a token)
-        const token = localStorage.getItem('token');
-        if (token) {
-          setIsLoggedIn(true);
-        } else {
-          setIsLoggedIn(false);
-        }
-      }, []);
+      await login(email, password);
+      setError('');
+      alert('Login successful');
+      navigate('/addtrip');
+      setIsLoggedIn(true);
+    }
+     catch (error) {
+      setError('Login failed. Please check your credentials.');
+    }
+    
+  };
 
+      
+   
   return (
     <div className='login-container'>
         <h1 className='login-title'>Login to TaxTim</h1>

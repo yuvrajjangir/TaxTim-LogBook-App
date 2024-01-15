@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../Styles/Logbookapp.css";
+import { useAuth } from "../Context/AuthContext";
 
-// import {auth} from "../Firebase";
-// import { Trips } from "./Trips";
 
-const LogBookApp = ({logout,userName}) => {
+const LogBookApp = () => {
+  const { user, logout } = useAuth();
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [clicked, setClicked] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -23,8 +24,7 @@ const LogBookApp = ({logout,userName}) => {
   };
 
   const handleLogout = (e) => {
-    
-    localStorage.removeItem('token');
+    logout();
     setIsLoggedIn(false);
     setShowDropdown(false);
     alert("User logged out");
@@ -48,6 +48,11 @@ const LogBookApp = ({logout,userName}) => {
     setShowDropdown(!showDropdown);
   };
 
+  const checkLoginStatus = () => {
+    const token = localStorage.getItem('token');
+    setIsLoggedIn(!!token); // Set isLoggedIn based on whether there is a token
+  };
+
   const closeDropdown = (event) => {
     if (!event.target.matches('.dropbtn')) {
       setShowDropdown(false);
@@ -63,13 +68,9 @@ const LogBookApp = ({logout,userName}) => {
 
   
   useEffect(() => {
-    // Check if the user is logged in on component mount (similar to componentDidMount)
-    const token = localStorage.getItem('token');
-    if (token) {
-      setIsLoggedIn(true);
-    }
-  }, []);
-
+    checkLoginStatus();
+  }, [user]);
+  
   // Prevent the default behavior of event propagation when clicking inside the dropdown content
   const stopPropagation = (e) => {
     e.stopPropagation();
@@ -129,12 +130,14 @@ const LogBookApp = ({logout,userName}) => {
       </button>
       {showDropdown && (
         <div  className="dropdown-content" onClick={stopPropagation}>
-         {!isLoggedIn ? (
+         {isLoggedIn ? (
               // If logged in, show logout button
-              <Link className="login-btn" to="/login">Login</Link>
+              <button style={{border:"none", backgroundColor:"#007499", color:"white", marginLeft:"5rem", fontWeight:"700", cursor:"pointer"}} className="logout-btn" onClick={handleLogout}>Logout</button>
+              
             ) : (
               // If not logged in, show login link
-              <button style={{border:"none", backgroundColor:"#007499", color:"white", marginLeft:"5rem", fontWeight:"700", cursor:"pointer"}} className="logout-btn" onClick={handleLogout}>Logout</button>
+              <Link className="login-btn" to="/login">Login</Link>
+              
               
             )}
         </div>

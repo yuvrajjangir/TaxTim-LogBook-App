@@ -51,6 +51,7 @@ export const AddLocation = () => {
           setName('');
           setAddress('');
           fetchlocation();
+          alert('Location added successfully')
         } catch (error) {
           console.error('Error saving trip:', error);
         }
@@ -106,7 +107,8 @@ export const AddLocation = () => {
             setName('');
             setEditIndex(null);
             setIsEditing(false);
-            setLocations(updatedLocationList); // Update the locations list with the edited location
+            setLocations(updatedLocationList);
+            alert('Location updated successfully') // Update the locations list with the edited location
           } else {
             console.error('No location selected for editing');
           }
@@ -120,8 +122,9 @@ export const AddLocation = () => {
         try {
           await axios.delete(`https://zany-red-cockatoo.cyclic.app/locations/${id}`);
           fetchlocation();
-          setAlertMessage('Location deleted successfully');
-          setShowAlert(true);
+          alert('Location deleted successfully')
+          // setAlertMessage('Location deleted successfully');
+          // setShowAlert(true);
         } catch (error) {
           if (error.response && error.response.status === 404) {
             console.error('Location not found:', error.response.data);
@@ -154,11 +157,6 @@ export const AddLocation = () => {
     <div className='addlocation'>
         <h3 className='addnewlocation'>Locations</h3>
         <h5 className='manage'>Manage places</h5>
-        {showAlert && (
-        <div className='alert-message'>
-          <p>{alertMessage}</p>
-        </div>
-      )}
         <div className='location-input'>
         <div className='location-label'>
                 <label>Name

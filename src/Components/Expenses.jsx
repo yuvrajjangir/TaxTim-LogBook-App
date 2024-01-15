@@ -66,6 +66,7 @@ export const Expenses = () => {
         ))}
       </div>
       </div>
+      <h3 className="trip-version">Latest Version 1.6.3</h3>
     </div>
   )
 }

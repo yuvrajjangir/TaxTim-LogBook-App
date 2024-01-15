@@ -297,3 +297,258 @@
   .expense-updated-color:disabled{
     background-color: #f0b26a;
   }
+  @media (max-width: 767px) {
+    .vehicle-label{
+      text-align: left;
+      margin-left: 3.5rem;
+      margin-top: 1rem;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+    /* Increase the size of the placeholder text */
+    .vehicle-input input::placeholder {
+      font-size: 15px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      color: rgb(159, 159, 159);/* Change this value to increase or decrease the placeholder text size */
+    }
+    
+    .vehicle-input input{
+      width: 70%;
+      height: 24px;
+      background-color: whitesmoke;
+      border: none;
+      margin-left: 0.4rem;
+      padding: 8px;
+      border: 1px solid #ccc; /* Default border color */
+      border-radius: 4px;
+      outline: none;
+      margin-bottom: 16px;
+    }
+    .vehicle-input input:focus {
+      border-color: rgb(93, 206, 241); /* Change border color to blue when focused */
+    }
+    .check-input-vehicle-1{
+      cursor: pointer;
+      /* margin-left: -10rem; */
+      /* margin-right: 5px; */
+      /* margin-bottom: 9rem !important; */
+      margin-left: -17.4rem;
+    }
+    .check-input-vehicle{
+      cursor: pointer;
+      margin-bottom: -2rem;
+      margin-left: -17.1rem;
+    }
+    .check-input[type="checkbox"] {
+      display: none;
+    }
+    
+    .check-input[type="checkbox"] + span:before {
+      width: 12px;
+      height: 12px;
+      border: 1.5px solid #aeacac;
+      content: "";
+      display: inline-block;
+      margin: 0 16px 0 0;
+      padding: 0;
+      vertical-align: top;
+      border-radius: 50%;
+      margin-top: 5px;
+      margin-right: 5px;
+      margin-left: 8px;
+    }
+    
+    .check-input[type="checkbox"]:checked + span:before {
+      background: #5b94e3;
+      border: 1.5px solid #6ea1e9;
+      box-shadow: inset 0px 0px 0px 1px #fff;
+      color: #333;
+      content: "";
+      margin-top: 5px;
+      margin-right: 5px;
+      /* text-align: center; */
+      border-radius: 50%;
+    }
+    
+    .check-input[type="checkbox"]:focus + span::before {
+      outline: 0;
+    }
+    .vehicle-label-ed{
+      /* text-align: left; */
+      margin-left: -13.8rem;
+      margin-top: 8rem;
+      font-size: 16px;
+      /* margin-bottom: 10px; */
+    }
+    .vehicle-name  {
+      color: #131313;
+      /* padding-top: 20rem; */
+      /* margin-top: 10px; */
+      font-family: "Lato", sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      /* line-height: 17px; */
+      margin-right: -25px;
+      /* white-space: nowrap; */
+    }
+    .fuel-yes{
+      /* text-align: left; */
+      margin-left: -10.3rem;
+      margin-top: 10px !important;
+    }
+    .fuel-input{
+      margin-top: 5px;
+      width: 70%;
+      height: 24px;
+      background-color: whitesmoke;
+      border: none;
+      margin-left: 0.7rem;
+      padding: 8px;
+      border: 1px solid #ccc; /* Default border color */
+      border-radius: 4px;
+      outline: none;
+      margin-bottom: 16px;
+    }
+    .vehicle-select{
+      width: 75%;
+      height: 45px;
+      background-color: whitesmoke;
+      border: none;
+      margin-left: 0.5rem;
+      /* padding: 8px; */
+      border: 1px solid #ccc; /* Default border color */
+      border-radius: 4px;
+      outline: none;
+    }
+    .expenses-container{
+      margin-top: 2rem;
+      border: 2px solid rgb(233, 232, 232);
+      width: 68%;
+      height: 90px;
+      background-color: white;
+      text-align: center;
+      font-weight: 200;
+      font-size: 20px;
+      /* padding: 5px; */
+      /* margin-top: -8px; */
+      margin-left: 4rem;
+      
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      color: white;
+    }
+    .expense-the-name{
+      margin-top: 2rem;
+      border: 2px solid transparent;
+      width: 68%;
+      height: 40px;
+      background-color: #41c1d0;
+      text-align: center;
+      font-weight: 200;
+      font-size: 20px;
+      /* padding: 5px; */
+      /* margin-top: -8px; */
+      margin-left: 4rem;
+      border-radius: 10px;
+      color: white;
+    }
+    .expense-save-btn{
+      width: 52%;
+      height: 42px;
+      border: none;
+      border-radius: 10px;
+      background-color: #54d387;
+      font-size: 17px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 600;
+      color: white;
+      margin-top: 2.5rem;
+      cursor: pointer;
+      margin-left: 0.5rem;
+    }
+    .expenses-reason{
+      text-align: left;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      margin-left: 0.6rem;
+      color: black;
+      margin-top: -1.7rem;
+      margin-bottom: 23px;
+    }
+    .expenses-odo{
+      margin-top: -0.6rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 400;
+      color: #131313;
+      text-align: left;
+      font-size: 10px;
+      margin-left: 1.6rem;
+    }
+    .expense-cost{
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 400;
+      color: #131313;
+      text-align: left;
+      font-size: 10px;
+      margin-top: -1.4rem;
+      margin-left: 6.5rem;
+    }
+    .expense-time{
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 400;
+      color: #131313;
+      text-align: left;
+      font-size: 10px;
+      margin-top: -1.6rem;
+      margin-left: 11rem;
+    }
+    .expenses-quantity{
+      margin-top: -0.6rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 400;
+      color: #131313;
+      text-align: left;
+      font-size: 11px;
+      margin-left: 1.5rem;
+    }
+    .car{
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 100;
+      color: #131313;
+      text-align: left;
+      font-size: 11px;
+      margin-top: -0.5rem;
+      margin-left: 1.6rem;
+    }
+    .expense-save-btn:hover{
+      background-color: #26cf6a;
+    }
+    .expense-save-btn:disabled{
+      background-color: #6ee19c;
+    }
+    /* .updated-color button{
+      width: 72%;
+      height: 42px;
+      border: none;
+      border-radius: 10px;
+      background-color: #f19d3a;
+      font-size: 17px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 600;
+      color: white;
+      margin-top: 2.5rem;
+      cursor: pointer;
+      margin-left: 2rem;
+    } */
+    .expense-updated-color{
+      background-color: #f19d3a;
+    }
+    .expense-updated-color:hover{
+      background-color: #f58a0f;
+    }
+    .expense-updated-color:disabled{
+      background-color: #f0b26a;
+    }
+  }

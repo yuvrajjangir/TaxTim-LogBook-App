@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "../Styles/Stats.css"
+import { useAuth } from '../Context/AuthContext';
 const LogbookStats = () => {
+  const { user, logout } = useAuth();
   const [year, setYear] = useState(new Date().getFullYear()); // Initial year is current year
   const [logbookStats, setLogbookStats] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -67,6 +69,16 @@ const LogbookStats = () => {
     fetchLogbookStats(newYear);
   };
 
+  const checkLoginStatus = () => {
+    const token = localStorage.getItem('token');
+    setIsLoggedIn(!!token); // Set isLoggedIn based on whether there is a token
+  };
+
+  useEffect(() => {
+    checkLoginStatus();
+  }, [user]);
+
+  
   useEffect(() => {
     fetchLogbookStats(year);
   }, [year]);
@@ -140,7 +152,7 @@ const LogbookStats = () => {
       <hr className="stats-line" />
       <div>
         <button className='previous-stats' onClick={() => changeYear(year - 1)}>🢀 Previous Year</button>
-        {/* <span>Current Year: {year}</span> */}
+      
         <button className='next-stats' onClick={() => changeYear(year + 1)}>Next Year 🢂</button>
       </div>
       <div className='stats-name'><h2>Travel logs -
@@ -151,7 +163,9 @@ Tax Year {year}</h2></div>
             <div>
             <p className='export-tax'>Each Tax year travel starts are exported separately, View required required tax year above and click "Export"</p>
             </div>
+            <div>
           <button className='stats-pdf-btn' onClick={handleDownload}>Export Tax Year</button>
+          </div>
         </div>
       )}
       <h3 className="stats-version">Latest Version 1.6.3</h3>

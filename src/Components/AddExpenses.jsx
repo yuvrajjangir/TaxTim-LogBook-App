@@ -79,6 +79,7 @@ export const AddExpenses = () => {
       setSelectedExpense('');
       setLitresOfFuel('');
       setSavedExpenses([...savedExpenses, newexpense]);
+      alert('Expense added successfully')
     } catch (error) {
       console.error('Error saving Location:', error);
     }
@@ -161,6 +162,7 @@ export const AddExpenses = () => {
         setEditIndex(null);
         setIsEditing(false);
         setSavedExpenses(updatedExpenses);
+        alert('Expense updated successfully')
       } else {
         console.error('No expense selected for editing');
       }
@@ -174,7 +176,7 @@ export const AddExpenses = () => {
     try {
       await axios.delete(`https://zany-red-cockatoo.cyclic.app/expenses/${expenseId}`);
       fetchExpenses();
-      setAlertMessage('Expense deleted successfully');
+      alert('Expense deleted successfully');
       setShowAlert(true);
     } catch (error) {
       if (error.response && error.response.status === 404) {
@@ -206,11 +208,11 @@ const handleSaveOrUpdateTrip = async () => {
   return (
     <div className='add-expense-container'>
         <h3 className='expense'>Expense</h3>
-        {showAlert && (
+        {/* {showAlert && (
         <div className='alert-message'>
           <p>{alertMessage}</p>
         </div>
-      )}
+      )} */}
         <div className='vehicle-label'>
                 <label>Odometer
                 </label>
@@ -306,6 +308,7 @@ const handleSaveOrUpdateTrip = async () => {
           </div>
         ))}
         </div>
+        <h3 className="trip-version">Latest Version 1.6.3</h3>
     </div>
     
   )

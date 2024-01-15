@@ -31,6 +31,9 @@
   input[type="text"]:focus {
     border-color: rgb(93, 206, 241); /* Change border color to blue when focused */
   }
+  input[type="password"]:focus {
+    border-color: rgb(93, 206, 241); /* Change border color to blue when focused */
+  }
   .signup-button{
     width: 70%;
     height: 42px;
@@ -62,4 +65,25 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 100;
     margin-top: 4rem;
+  }
+  @media (max-width: 767px) {
+    .signup-label{
+      text-align: left;
+      margin-left: 3.2rem;
+      margin-top: 1rem;
+      font-size: 16px;
+      margin-bottom: 5px;
+  }
+  .signup-input input{
+      width: 70%;
+      height: 24px;
+      background-color: whitesmoke;
+      border: none;
+      margin-left: 2px;
+      padding: 8px;
+      border: 1px solid #ccc; /* Default border color */
+      border-radius: 10px;
+      outline: none;
+  }
+  
   }

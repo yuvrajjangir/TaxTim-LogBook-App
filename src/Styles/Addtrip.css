@@ -54,6 +54,42 @@
     font-size: 16px;
     margin-bottom: 5px;
   }
+  .odometer-label{
+    text-align: left;
+    margin-left: 14.7rem;
+    margin-top: 1rem;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  .time-label{
+    text-align: left;
+    margin-left: 14.7rem;
+    margin-top: 1rem;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  .time-input input{
+    width: 70%;
+    height: 24px;
+    background-color: whitesmoke;
+    border: none;
+    margin-left: 2rem;
+    padding: 8px;
+    border: 1px solid #ccc; /* Default border color */
+    border-radius: 4px;
+    outline: none;
+  }
+  .odometer-input input{
+    width: 70%;
+    height: 24px;
+    background-color: whitesmoke;
+    border: none;
+    margin-left: 2rem;
+    padding: 8px;
+    border: 1px solid #ccc; /* Default border color */
+    border-radius: 4px;
+    outline: none;
+  }
   /* Increase the size of the placeholder text */
   .input input::placeholder {
     font-size: 15px;
@@ -72,10 +108,10 @@
     border-radius: 4px;
     outline: none;
   }
-  input[type="text"]:focus {
+  .odometer-input input[type="number"]:focus {
     border-color: rgb(93, 206, 241); /* Change border color to blue when focused */
   }
-
+ 
 
   .checkbox{
     cursor: pointer;
@@ -288,4 +324,264 @@
     border: none;
     background-color: white;
     cursor: pointer;
+  }
+
+  @media (max-width: 767px) {
+    .loc-btn-1{
+      width: 19%;
+      height: 45px;
+      border: none;
+      border-radius: 10px;
+      background-color: #f19d3a;
+      color: white;
+      font-size: 13px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 600;
+      margin-top: -0.1rem;
+      cursor: pointer;
+    }
+    .label{
+      text-align: left;
+      margin-left: 3.8rem;
+      margin-top: 1rem;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+    .select-reason{
+      width: 71%;
+      height: 45px;
+      background-color: whitesmoke;
+      border: none;
+      margin-left: 0.2rem;
+      /* padding: 8px; */
+      border: 1px solid #ccc; /* Default border color */
+      border-radius: 4px;
+      outline: none;
+    }
+    
+    .input input::placeholder {
+      font-size: 15px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      color: rgb(159, 159, 159);/* Change this value to increase or decrease the placeholder text size */
+    }
+    
+    .input input{
+      width: 70%;
+      height: 24px;
+      background-color: whitesmoke;
+      border: none;
+      margin-left: 2rem;
+      padding: 8px;
+      border: 1px solid #ccc; /* Default border color */
+      border-radius: 4px;
+      outline: none;
+    }
+    input[type="text"]:focus {
+      border-color: rgb(93, 206, 241); /* Change border color to blue when focused */
+    }
+    .odometer-label{
+      text-align: left;
+      margin-left: 3.8rem;
+      margin-top: 1rem;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+    .odometer-input input{
+      width: 68%;
+      height: 24px;
+      background-color: whitesmoke;
+      border: none;
+      margin-left: 0.4rem;
+      /* margin-bottom: rem; */
+      padding: 8px;
+      border: 1px solid #ccc; /* Default border color */
+      border-radius: 4px;
+      outline: none;
+    }
+    .odometer-input input[type="number"]:focus {
+      border-color: rgb(93, 206, 241); /* Change border color to blue when focused */
+    }
+    .time-label{
+      text-align: left;
+      margin-left: 3.8rem;
+      margin-top: 1rem;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+    .time-input input{
+      width: 68%;
+      height: 24px;
+      background-color: whitesmoke;
+      border: none;
+      margin-left: 0.4rem;
+      /* margin-bottom: rem; */
+      padding: 8px;
+      border: 1px solid #ccc; /* Default border color */
+      border-radius: 4px;
+      outline: none;
+    }
+    .checkbox{
+      cursor: pointer;
+      margin-left: 3rem;
+      /* margin-right: 5px; */
+    }
+    .checkbox2{
+      cursor: pointer;
+      margin-left: -8.3rem;
+    }
+    
+    .name {
+      color: #131313;
+      /* padding-top: 20rem; */
+      font-family: "Lato", sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 17px;
+      margin-right: -25px;
+      white-space: nowrap;
+    }
+    
+    input[type="checkbox"] {
+      display: none;
+    }
+    
+    input[type="checkbox"] + span:before {
+      width: 12px;
+      height: 12px;
+      border: 1.5px solid #aeacac;
+      content: "";
+      display: inline-block;
+      margin: 0 16px 0 0;
+      padding: 0;
+      vertical-align: top;
+      border-radius: 50%;
+      margin-top: 5.4px;
+      margin-right: 5px;
+      margin-left: 8px;
+    }
+    
+    input[type="checkbox"]:checked + span:before {
+      background: #5b94e3;
+      border: 1.5px solid #6ea1e9;
+      box-shadow: inset 0px 0px 0px 1px #fff;
+      color: #333;
+      content: "";
+      margin-top: 5.4px;
+      margin-right: 5px;
+      /* text-align: center; */
+      border-radius: 50%;
+    }
+    
+    input[type="checkbox"]:focus + span::before {
+      outline: 0;
+    }
+    .save-trip-btn{
+      width: 52%;
+      height: 42px;
+      border: none;
+      border-radius: 10px;
+      background-color: #54d387;
+      font-size: 17px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 600;
+      color: white;
+      margin-top: 2.5rem;
+      cursor: pointer;
+      margin-left: 0.5rem;
+    } 
+    .saved-trip-name{
+      margin-top: 2rem;
+      border: 2px solid transparent;
+      width: 68%;
+      height: 40px;
+      background-color: #41c1d0;
+      text-align: center;
+      font-weight: 200;
+      font-size: 20px;
+      /* padding: 5px; */
+      /* margin-top: -8px; */
+      margin-left: 4rem;
+      border-radius: 10px;
+      color: white;
+    }
+    .saved-trip-name h2{
+      margin-top: 0.5rem;
+      margin-left: 0.4rem;
+      font-size: 17px;
+      text-align: left;
+      font-weight: 500;
+    }
+    .saved-trips-container{
+      margin-top: 2rem;
+      border: 2px solid rgb(233, 232, 232);
+      width: 68%;
+      height: 70px;
+      background-color: white;
+      text-align: center;
+      font-weight: 200;
+      font-size: 20px;
+      /* padding: 5px; */
+      /* margin-top: -8px; */
+      margin-left: 4rem;
+      
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      color: white;
+    }
+    .places{
+      text-align: left;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 10px;
+      font-weight: 400;
+      margin-left: 0.6rem;
+      color: black;
+      margin-top: -1.2rem;
+    }
+    .dista{
+      margin-top: -1.5rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 700;
+      color: #131313;
+      text-align: left;
+      font-size: 11px;
+      margin-bottom: 17px;
+      margin-left: 8rem;
+    }
+    .meet-time{
+      
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 100;
+      color: #131313;
+      text-align: left;
+      font-size: 9.5px;
+      margin-top: -0.5rem;
+      margin-left: 1.6rem;
+    }
+    .car{
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 100;
+      color: #131313;
+      text-align: left;
+      font-size: 12px;
+      font-weight: 100;
+      margin-top: -0.5rem;
+      margin-left: 2.3rem;
+    }
+    .trash{
+      border: none;
+      background-color: white;
+      cursor: pointer;
+      color: red;
+      margin-right: -13.4rem;
+      margin-top: 0.6rem;
+      /* margin-bottom: 10rem; */
+    }
+    .edit{
+      margin-right: -5px;
+      border: none;
+      background-color: white;
+      cursor: pointer;
+    }
+  
   }
