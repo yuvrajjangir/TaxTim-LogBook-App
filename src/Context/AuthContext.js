@@ -58,14 +58,16 @@ export const AuthProvider = ({ children }) => {
         password,
       });
 
-      if (api.data.token) {
-        localStorage.setItem('token', api.data.token);
+      console.log('API Response:', api);
+
+      if (api.data === 'Singup successful') {
         setUser(api.data.user);
       } else {
-        throw new Error('Signup failed');
+        console.error('Unexpected signup response:', api.data);
       }
     } catch (error) {
-      throw error;
+      console.error('Error during signup:', error);
+      throw error; // Re-throw the error to propagate it to the calling code
     }
   };
 

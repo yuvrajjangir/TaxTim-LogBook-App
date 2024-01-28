@@ -19,14 +19,8 @@ export const Signup = () => {
             setError("Please fill all the required fields");
             return;
         }
-    
-        const data = {
-            name: name,
-            email: email,
-            password: password
-        }
         try {
-            await signup(email, password);
+            await signup(name, email, password);
             alert("Signup successful");
             navigate("/login");
             // console.log(api);
