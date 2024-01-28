@@ -75,11 +75,19 @@ const LogBookApp = () => {
   const stopPropagation = (e) => {
     e.stopPropagation();
   };
+  const backgroundImageUrl = "https://i.ytimg.com/vi/nAFLsldyJfs/maxresdefault.jpg";
+
+  // Styles for background image
+  const backgroundStyles = {
+    backgroundImage: `url(${backgroundImageUrl})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  };
 
   return (
     <>
-      <div className="top-nav1">
-      <div className="logbook-image">
+      <div className="top-nav1" >
+      <div className="logbook-image" >
           <Link to="/addtrip">
             <img
               src="https://logbook.taxtim.com/img/logbook-logo.svg"
@@ -121,7 +129,7 @@ const LogBookApp = () => {
               How it works
             </Link>
           </div>
-          <div class="some1 line">
+          <div class="some1 line" >
              <span class="link1"></span>
           </div>
           <div className="dropdown">
@@ -162,7 +170,7 @@ const LogBookApp = () => {
 
       {/* now the content of trips goes here  */}
 
-     <div className="trips">
+     <div className="trips" >
       {!isLoggedIn && (
         <div className="alert-box">
           <div className="alert">

@@ -12,11 +12,15 @@ const LogbookStats = () => {
 
 
   useEffect(() => {
-    // Check if the user is logged in on component mount
     const token = localStorage.getItem('token');
-    setIsLoggedIn(!!token); // Set login status based on the presence of token
-    // ... (other logic)
-  }, []);
+    setIsLoggedIn(!!token);
+
+    // Fetch logbook stats based on the user when the component mounts
+    if (isLoggedIn) {
+      fetchLogbookStats(year, user.email); // Assuming user object has email property
+    }
+  }, [user, year]);
+
   const handleDownload = async () => {
     if (!isLoggedIn) {
         console.log('User is not logged in.');
@@ -24,7 +28,7 @@ const LogbookStats = () => {
       }
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get(`https://zany-red-cockatoo.cyclic.app/generate-pdf/${year}`, {
+      const response = await axios.get(`https://logbook-emwv.onrender.com/generate-pdf/${year}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -48,11 +52,11 @@ const LogbookStats = () => {
         }
       }
   };
-  const fetchLogbookStats = async (requestedYear) => {
+  const fetchLogbookStats = async (requestedYear, userEmail) => {
     setLoading(true);
     try {
       const token = localStorage.getItem('token'); // Retrieve the token from local storage
-      const response = await axios.get(`https://zany-red-cockatoo.cyclic.app/logbook/${requestedYear}`, {
+      const response = await axios.get(`https://logbook-emwv.onrender.com/${requestedYear}?email=${userEmail}`, {
         headers: {
           Authorization: `Bearer ${token}`, // Pass the token in the request headers
         },
@@ -78,7 +82,7 @@ const LogbookStats = () => {
     checkLoginStatus();
   }, [user]);
 
-  
+
   useEffect(() => {
     fetchLogbookStats(year);
   }, [year]);

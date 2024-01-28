@@ -49,7 +49,7 @@ export const AddExpenses = () => {
   }, []);
   const fetchExpenses = async () => {
     try {
-      const response = await axios.get('https://zany-red-cockatoo.cyclic.app/expenses');
+      const response = await axios.get('https://logbook-emwv.onrender.com/expenses');
     //   console.log('All Expenses:', response.data);
       setSavedExpenses(response.data); // Update state with fetched expenses
     } catch (error) {
@@ -72,7 +72,7 @@ export const AddExpenses = () => {
         isFuel: isFuelSelected,
         litresOfFuel: isFuelSelected ? litresOfFuel : null,
       };
-      await axios.post('https://zany-red-cockatoo.cyclic.app/expenses', newexpense);
+      await axios.post('https://logbook-emwv.onrender.com/expenses', newexpense);
       setOdometer('');
       setCost('');
       setTime('');
@@ -101,7 +101,7 @@ export const AddExpenses = () => {
 
   const handleEditExpense = async (expenseId) => {
     try {
-      const response = await axios.get(`https://zany-red-cockatoo.cyclic.app/expenses/${expenseId}`);
+      const response = await axios.get(`https://logbook-emwv.onrender.com/expenses/${expenseId}`);
       const expenseToEdit = response.data;
   
       if (expenseToEdit) {
@@ -135,7 +135,7 @@ export const AddExpenses = () => {
           litresOfFuel: isFuelSelected ? litresOfFuel : null,
         };
   
-        const response = await axios.put(`https://zany-red-cockatoo.cyclic.app/expenses/${editIndex}`, updatedExpense);
+        const response = await axios.put(`https://logbook-emwv.onrender.com/expenses/${editIndex}`, updatedExpense);
   
         console.log('Expense updated:', response.data);
   
@@ -174,7 +174,7 @@ export const AddExpenses = () => {
 
   const handleDeleteExpense = async (expenseId) => {
     try {
-      await axios.delete(`https://zany-red-cockatoo.cyclic.app/expenses/${expenseId}`);
+      await axios.delete(`https://logbook-emwv.onrender.com/expenses/${expenseId}`);
       fetchExpenses();
       alert('Expense deleted successfully');
       setShowAlert(true);

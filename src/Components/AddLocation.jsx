@@ -34,7 +34,7 @@ export const AddLocation = () => {
     
     const fetchlocation = async () => {
         try {
-          const response = await axios.get('https://zany-red-cockatoo.cyclic.app/locations'); // Replace with your backend API endpoint
+          const response = await axios.get('https://logbook-emwv.onrender.com/locations'); // Replace with your backend API endpoint
           setLocations(response.data);
         } catch (error) {
           console.error('Error fetching locations:', error);
@@ -47,7 +47,7 @@ export const AddLocation = () => {
            name,
            address, // Include Going to in newTrip
           };
-          await axios.post('https://zany-red-cockatoo.cyclic.app/locations', newLocation);
+          await axios.post('https://logbook-emwv.onrender.com/locations', newLocation);
           setName('');
           setAddress('');
           fetchlocation();
@@ -59,7 +59,7 @@ export const AddLocation = () => {
 
       const handleEditTrip = async (locateId) => {
         try {
-          const response = await axios.get(`https://zany-red-cockatoo.cyclic.app/locations/${locateId}`);
+          const response = await axios.get(`https://logbook-emwv.onrender.com/locations/${locateId}`);
           const locationToEdit = response.data;
           if (locationToEdit) {
             setShowUpdateButton(true);
@@ -86,7 +86,7 @@ export const AddLocation = () => {
             };
       
             // Make the PUT request to update the location with the specified ID
-            const response = await axios.put(`https://zany-red-cockatoo.cyclic.app/locations/${editIndex}`, updatedLocations);
+            const response = await axios.put(`https://logbook-emwv.onrender.com/locations/${editIndex}`, updatedLocations);
             
             // Handle response after successful update
             console.log('Location updated:', response.data);
@@ -120,7 +120,7 @@ export const AddLocation = () => {
       
       const handleDeleteLocation = async (id) => {
         try {
-          await axios.delete(`https://zany-red-cockatoo.cyclic.app/locations/${id}`);
+          await axios.delete(`https://logbook-emwv.onrender.com/locations/${id}`);
           fetchlocation();
           alert('Location deleted successfully')
           // setAlertMessage('Location deleted successfully');

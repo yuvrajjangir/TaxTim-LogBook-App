@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
         const token = localStorage.getItem('token');
 
         if (token) {
-          const api = await axios.get('https://zany-red-cockatoo.cyclic.app/', {
+          const api = await axios.get('https://logbook-emwv.onrender.com/', {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const api = await axios.post('https://zany-red-cockatoo.cyclic.app/login', {
+      const api = await axios.post('https://logbook-emwv.onrender.com/login', {
         email,
         password,
       });
@@ -50,13 +50,33 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const signup = async (name, email, password) => {
+    try {
+      const api = await axios.post('https://logbook-emwv.onrender.com/signup', {
+        name,
+        email,
+        password,
+      });
+
+      if (api.data.token) {
+        localStorage.setItem('token', api.data.token);
+        setUser(api.data.user);
+      } else {
+        throw new Error('Signup failed');
+      }
+    } catch (error) {
+      throw error;
+    }
+  };
+
+
   const logout = () => {
     localStorage.removeItem('token');
     setUser(null);
   };
 
   return (
-    <AuthContext.Provider value={{ user, loading, login, logout }}>
+    <AuthContext.Provider value={{ user, loading, signup, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

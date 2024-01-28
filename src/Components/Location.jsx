@@ -20,7 +20,7 @@ export const Location = () => {
       }, []);
     const fetchlocation = async () => {
         try {
-          const response = await axios.get('https://zany-red-cockatoo.cyclic.app/locations'); // Replace with your backend API endpoint
+          const response = await axios.get('https://logbook-emwv.onrender.com/locations'); // Replace with your backend API endpoint
           setLocations(response.data);
         } catch (error) {
           console.error('Error fetching locations:', error);
@@ -34,7 +34,7 @@ export const Location = () => {
 
   const handleEditTrip = async (locateId) => {
     try {
-      const response = await axios.get(`https://zany-red-cockatoo.cyclic.app/locations/${locateId}`);
+      const response = await axios.get(`https://logbook-emwv.onrender.com/locations/${locateId}`);
       const locationToEdit = response.data;
       if (locationToEdit) {
         setName(locationToEdit.name);
@@ -52,7 +52,7 @@ export const Location = () => {
 
   const handleDeleteLocation = async (id) => {
     try {
-      await axios.delete(`https://zany-red-cockatoo.cyclic.app/locations/${id}`);
+      await axios.delete(`https://logbook-emwv.onrender.com/locations/${id}`);
       fetchlocation();
       setAlertMessage('Location deleted successfully');
       setShowAlert(true);

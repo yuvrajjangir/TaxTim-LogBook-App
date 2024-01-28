@@ -29,7 +29,7 @@ export const Trips = () => {
 
   const fetchSavedTrips = async () => {
     try {
-      const response = await axios.get('https://zany-red-cockatoo.cyclic.app/trips'); // Replace with your backend API endpoint
+      const response = await axios.get('https://logbook-emwv.onrender.com/trips'); // Replace with your backend API endpoint
       setSavedTrips(response.data);
     } catch (error) {
       console.error('Error fetching trips:', error);
@@ -38,7 +38,7 @@ export const Trips = () => {
 
   const handleEditTrip = async (tripId) => {
     try {
-      const response = await axios.get(`https://zany-red-cockatoo.cyclic.app/trips/${tripId}`);
+      const response = await axios.get(`https://logbook-emwv.onrender.com/trips/${tripId}`);
       const tripToEdit = response.data;
       if (tripToEdit) {
         setDepartureOdometer(tripToEdit.departureOdometer);
@@ -60,7 +60,7 @@ export const Trips = () => {
 
   const handleDeleteTrip = async (id) => {
     try {
-      await axios.delete(`https://zany-red-cockatoo.cyclic.app/trips/${id}`);
+      await axios.delete(`https://logbook-emwv.onrender.com/trips/${id}`);
       fetchSavedTrips();
       setAlertMessage('Trip deleted successfully');
       setShowAlert(true);

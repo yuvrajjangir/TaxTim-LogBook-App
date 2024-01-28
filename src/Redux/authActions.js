@@ -4,7 +4,7 @@ import { LOGIN_SUCCESS, LOGOUT_SUCCESS } from './authActionTypes';
 
 export const login = (email, password) => async (dispatch) => {
   try {
-    const api = await axios.post('https://zany-red-cockatoo.cyclic.app/login', {
+    const api = await axios.post('https://logbook-emwv.onrender.com/login', {
       email,
       password,
     });

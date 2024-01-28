@@ -2,12 +2,15 @@ import React, { useState } from 'react'
 import "../Styles/Signup.css"
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
+import { useAuth } from '../Context/AuthContext';
 export const Signup = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate('');
+    const { signup } = useAuth();
+
 
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -16,20 +19,19 @@ export const Signup = () => {
             setError("Please fill all the required fields");
             return;
         }
-        else{
-            navigate("/login")
-        }
+    
         const data = {
             name: name,
             email: email,
             password: password
         }
         try {
-            const api = await axios.post('https://zany-red-cockatoo.cyclic.app/signup', data);
+            await signup(email, password);
             alert("Signup successful");
-            console.log(api);
+            navigate("/login");
+            // console.log(api);
         } catch (error) {
-            console.log(error);
+            setError("Signup failed. Please check your details and try again.");
         }
     }
   return (

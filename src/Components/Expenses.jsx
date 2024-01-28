@@ -15,7 +15,7 @@ export const Expenses = () => {
       }, []);
     const fetchExpenses = async () => {
         try {
-          const response = await axios.get('https://zany-red-cockatoo.cyclic.app/expenses'); // Replace with your backend API endpoint
+          const response = await axios.get('https://logbook-emwv.onrender.com/expenses'); // Replace with your backend API endpoint
           setExpenses(response.data);
         } catch (error) {
           console.error('Error fetching locations:', error);
@@ -23,7 +23,7 @@ export const Expenses = () => {
       };
       const handleDeleteExpense = async (expenseId) => {
         try {
-          await axios.delete(`https://zany-red-cockatoo.cyclic.app/expenses/${expenseId}`);
+          await axios.delete(`https://logbook-emwv.onrender.com/expenses/${expenseId}`);
           fetchExpenses();
         //   setAlertMessage('Expense deleted successfully');
         //   setShowAlert(true);

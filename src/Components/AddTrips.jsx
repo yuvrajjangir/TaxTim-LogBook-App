@@ -48,7 +48,7 @@ export const AddTrips = () => {
   };
   const fetchLocations = async () => {
     try {
-      const response = await axios.get('https://zany-red-cockatoo.cyclic.app/locations');
+      const response = await axios.get('https://logbook-emwv.onrender.com/locations');
       setLocations(response.data);
     } catch (error) {
       console.error('Error fetching locations:', error);
@@ -66,7 +66,7 @@ export const AddTrips = () => {
 
   const fetchSavedTrips = async () => {
     try {
-      const response = await axios.get('https://zany-red-cockatoo.cyclic.app/trips'); // Replace with your backend API endpoint
+      const response = await axios.get('https://logbook-emwv.onrender.com/trips'); // Replace with your backend API endpoint
       setSavedTrips(response.data);
     } catch (error) {
       console.error('Error fetching trips:', error);
@@ -86,7 +86,7 @@ export const AddTrips = () => {
         leavingFrom, // Include Leaving from in newTrip
         goingTo, // Include Going to in newTrip
       };
-      await axios.post('https://zany-red-cockatoo.cyclic.app/trips', newTrip);
+      await axios.post('https://logbook-emwv.onrender.com/trips', newTrip);
       setDepartureOdometer('');
       setArrivalOdometer('');
       setSelectedReason('');
@@ -118,7 +118,7 @@ export const AddTrips = () => {
 
   const handleDeleteTrip = async (id) => {
     try {
-      await axios.delete(`https://zany-red-cockatoo.cyclic.app/trips/${id}`);
+      await axios.delete(`https://logbook-emwv.onrender.com/trips/${id}`);
       fetchSavedTrips();
       alert('Trip deleted successfully')
       setShowAlert(true);
@@ -133,7 +133,7 @@ export const AddTrips = () => {
 
   const handleEditTrip = async (tripId) => {
     try {
-      const response = await axios.get(`https://zany-red-cockatoo.cyclic.app/trips/${tripId}`);
+      const response = await axios.get(`https://logbook-emwv.onrender.com/trips/${tripId}`);
       const tripToEdit = response.data;
       if (tripToEdit) {
         setDepartureOdometer(tripToEdit.departureOdometer);
@@ -169,7 +169,7 @@ export const AddTrips = () => {
         };
   
         // Make the PUT request to update the trip with the specified tripId
-        const response = await axios.put(`https://zany-red-cockatoo.cyclic.app/trips/${editIndex}`, updatedTrip);
+        const response = await axios.put(`https://logbook-emwv.onrender.com/trips/${editIndex}`, updatedTrip);
         
         // Handle response after successful update, if needed
         console.log('Trip updated:', response.data);
