@@ -8,29 +8,29 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const token = localStorage.getItem('token');
-
-        if (token) {
-          const api = await axios.get('https://logbook-emwv.onrender.com/', {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          });
-
-          setUser(api.data);
-        }
-      } catch (error) {
-        console.log("Authentication error:", error);
+  const checkAuth = async () => {
+    try {
+      const token = localStorage.getItem('token');
+  
+      if (token) {
+        const response = await axios.get('https://logbook-emwv.onrender.com/', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+  
+        const userData = response.data; // Assuming the user data is received as an object from the server
+        setUser(userData);
+        console.log("User set:", userData);
       }
-
-      setLoading(false);
-    };
-
-    checkAuth();
-  }, []); // Make sure the dependency array is empty to run only once on mount
+    } catch (error) {
+      console.log("Authentication error:", error);
+    }
+  
+    setLoading(false);
+  };
+  
+  // Make sure the dependency array is empty to run only once on mount
 
   const login = async (email, password) => {
     try {
@@ -85,5 +85,11 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => {
-  return useContext(AuthContext);
+  const authContext = useContext(AuthContext);
+  
+  if (!authContext) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+  
+  return authContext;
 };

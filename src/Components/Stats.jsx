@@ -3,7 +3,7 @@ import axios from 'axios';
 import "../Styles/Stats.css"
 import { useAuth } from '../Context/AuthContext';
 const LogbookStats = () => {
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
   const [year, setYear] = useState(new Date().getFullYear()); // Initial year is current year
   const [logbookStats, setLogbookStats] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -12,14 +12,27 @@ const LogbookStats = () => {
 
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    setIsLoggedIn(!!token);
+    fetchLogbookStats(year); // Fetch data when the component mounts or when the year changes
+  }, [year]);
 
-    // Fetch logbook stats based on the user when the component mounts
-    if (isLoggedIn) {
-      fetchLogbookStats(year, user.email); // Assuming user object has email property
-    }
-  }, [user, year]);
+  const fetchLogbookStats = async (requestedYear) => {
+    setLoading(true);
+    try {
+      const token = localStorage.getItem('token');
+      const response = await axios.get(`https://logbook-emwv.onrender.com/logbook/${requestedYear}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    setLogbookStats(response.data);
+  } catch (error) {
+    console.error('Error fetching logbook stats:', error);
+    setLogbookStats([]);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   const handleDownload = async () => {
     if (!isLoggedIn) {
@@ -34,6 +47,7 @@ const LogbookStats = () => {
         },
         responseType: 'blob',
       });
+      console.log(response.data);
 
       const blob = new Blob([response.data], { type: 'application/pdf' });
       const url = window.URL.createObjectURL(blob);
@@ -52,22 +66,12 @@ const LogbookStats = () => {
         }
       }
   };
-  const fetchLogbookStats = async (requestedYear, userEmail) => {
-    setLoading(true);
-    try {
-      const token = localStorage.getItem('token'); // Retrieve the token from local storage
-      const response = await axios.get(`https://logbook-emwv.onrender.com/${requestedYear}?email=${userEmail}`, {
-        headers: {
-          Authorization: `Bearer ${token}`, // Pass the token in the request headers
-        },
-      });
-      setLogbookStats(response.data);
-      setLoading(false);
-    } catch (error) {
-      console.error('Error fetching logbook stats:', error);
-      setLoading(false);
-    }
-  };
+  
+ 
+  
+  
+  
+  
   const changeYear = (newYear) => {
     setYear(newYear);
     fetchLogbookStats(newYear);
